@@ -124,6 +124,7 @@ void pop(stack_t **stack, unsigned int line_num)
 
 /**
  * nop - does NAIN.
+ *
  * @stack: pointer to head node pointer of stack.
  * @line_num: line number.
  *
