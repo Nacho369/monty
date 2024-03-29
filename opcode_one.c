@@ -72,7 +72,7 @@ void pint(stack_t **stack, unsigned int line_num)
 	stack_t *temp;
 	unsigned int i;
 
-	if (stack == NULL || *stack == NULL)
+	if (stack == NULL || (*stack) == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_num);
 		exit(EXIT_FAILURE);
@@ -88,6 +88,37 @@ void pint(stack_t **stack, unsigned int line_num)
 	}
 
 	printf("%d\n", temp->n);
+}
+
+
+/**
+ * pop - Pops the top element of the stack
+ *
+ * @stack: Pointer to the head node pointer of stack
+ * @line_num: Line number of file
+ *
+ * Return: void
+ */
+void pop(stack_t **stack, unsigned int line_num)
+{
+	if (stack == NULL || (*stack) == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->next != NULL)
+	{
+		*stack = (*stack)->next;
+		free((*stack)->prev);
+		(*stack)->prev = NULL;
+	}
+	else
+	{
+		free(*stack);
+		*stack = NULL;
+	}
+
 }
 
 
