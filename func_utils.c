@@ -70,7 +70,7 @@ bool argument_check(char *token)
 
 		if (token[i] < '0' || token[i] > '9')
 			return (false);
-												}
+	}
 
 	return (true);
 }

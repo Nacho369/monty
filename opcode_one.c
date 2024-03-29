@@ -60,6 +60,38 @@ void pall(stack_t **stack, unsigned int line_num)
 
 
 /**
+ * pint - Prints the value at the top of the stack, followed by a new line
+ *
+ * @stack: Pointer to the head node pointer of stack
+ * @line_num: Line number of file
+ *
+ * Return: void
+ */
+void pint(stack_t **stack, unsigned int line_num)
+{
+	stack_t *temp;
+	unsigned int i;
+
+	if (stack == NULL && (*stack) == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = *stack;
+
+	for (i = 0; temp; i++)
+	{
+		if (temp->prev == NULL)
+			break;
+		temp = temp->next;
+	}
+
+	printf("%d\n", temp->n);
+}
+
+
+/**
  * nop - does NAIN.
  * @stack: pointer to head node pointer of stack.
  * @line_num: line number.

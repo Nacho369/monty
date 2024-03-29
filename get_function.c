@@ -15,6 +15,8 @@ void (*get_opcode_func(file_l line, file_c * buffer))(stack_t **, unsigned int)
 	instruction_t opcodes[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 
