@@ -1,6 +1,6 @@
 #include "monty.h"
 
-arg_t arg = {0, 0};
+arg_t arg = {0, 0}; 
 
 /**
  * free_stack - frees all nodes in a stack.
@@ -29,7 +29,7 @@ void free_stack(stack_t **stack)
  * global argument variable if true.
  * @line: struct containg line content and number.
  * @opcode: opcode to compare.
- * @meta: struct containing all alocated memory.
+ * @buffer: struct containing all alocated memory.
  *
  * Return: NAIN.
  */
@@ -59,7 +59,7 @@ void push_check(file_l line, file_c *buffer, char *opcode)
 bool argument_check(char *token)
 {
 	unsigned int i;
-	
+
 	if (!token)
 		return (false);
 
@@ -67,7 +67,7 @@ bool argument_check(char *token)
 	{
 		if (token[0] == '-')
 			continue;
-		
+
 		if (token[i] < '0' || token[i] > '9')
 			return (false);
 												}
@@ -75,3 +75,26 @@ bool argument_check(char *token)
 	return (true);
 }
 
+
+/**
+ * comment_check - checks if line is a comment.
+ * @line: struct containing line content and number.
+ *
+ * Return: true if comment otherwise false.
+ */
+bool comment_check(file_l line)
+{
+	if (!line.content[0])
+	{
+		free(line.content);
+		return (true);
+	}
+
+	if (line.content[0][0] == '#')
+	{
+		free(line.content);
+		return (true);
+	}
+
+	return (false);
+}

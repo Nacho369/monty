@@ -2,7 +2,7 @@
 
 
 /**
- * parsefile - reads and parses file line by line.
+ * parse_file - reads and parses file line by line.
  * @file: script to be read.
  *
  * Return: nothing.
@@ -30,7 +30,7 @@ void parse_file(FILE *file)
 	while (getline(&(buffer->buff), &len, buffer->file) != -1)
 	{
 		line.number++;
-		parseline(&line, buffer->buff);
+		parse_line(&line, buffer->buff);
 
 		if (line.content != NULL)
 			get_opcode_func(line, buffer)(&(buffer->stack), line.number);
@@ -44,14 +44,14 @@ void parse_file(FILE *file)
 
 
 /**
- * parseline - parses then tokenizes a line of text storing
+ * parse_line - parses then tokenizes a line of text storing
  * it in a line struct.
  * @line: struct containing content and line number.
  * @buffer: string of text read from script file.
  *
  * Return: nothing
  */
-void parseline(file_l *line, char *buffer)
+void parse_line(file_l *line, char *buffer)
 {
 	unsigned int i;
 	char *token = NULL;

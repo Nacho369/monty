@@ -57,7 +57,6 @@ typedef struct arg_s
 
 extern arg_t arg;
 
-
 /**
  * struct file_content - contents of file and buffer data.
  *
@@ -89,7 +88,7 @@ typedef struct file_line
 /* PROTOTYPES */      
 /* PARSER FUNCS */
 void parse_file(FILE *file);
-void parseline(file_l *line, char *buffer);
+void parse_line(file_l *line, char *buffer);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 /* UTILS FUNCS */
@@ -97,10 +96,13 @@ void free_stack(stack_t **stack);
 void (*get_opcode_func(file_l line, file_c *buffer))(stack_t **, unsigned int);
 void push_check(file_l line, file_c *buffer, char *opcode);
 bool argument_check(char *token);
+bool comment_check(file_l line);
 
 
 /* OPCODES FUNCS */
 void push(stack_t **stack, unsigned int line_num);
 void pall(stack_t **stack, unsigned int line_num);
+void nop(stack_t **stack, unsigned int line_num);
+
 
 #endif /* MONTY_H */

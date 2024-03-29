@@ -3,8 +3,9 @@
 
 /**
  * push - pushes node to top of stack.
+ *
  * @stack: pointer to head node pointer of stack
- * @nline: line number.
+ * @line_num: line number.
  *
  * Return: NAIN.
  */
@@ -38,8 +39,9 @@ void push(stack_t **stack, unsigned int line_num)
 
 /**
  * pall - prints data of all nodes in stack.
+ *
  * @stack: pointer to head node pointer of stack.
- * @nline: line number.
+ * @line_num: line number.
  *
  * Return: nothing.
  */
@@ -54,4 +56,18 @@ void pall(stack_t **stack, unsigned int line_num)
 		printf("%d\n", temp->n);
 		temp = temp->next;
 	}
+}
+
+
+/**
+ * nop - does NAIN.
+ * @stack: pointer to head node pointer of stack.
+ * @line_num: line number.
+ *
+ * Return: NAIN.
+ */
+void nop(stack_t **stack, unsigned int line_num)
+{
+	(void)stack;
+	(void)line_num;
 }
