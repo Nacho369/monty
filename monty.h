@@ -98,7 +98,6 @@ void push_check(file_l line, file_c *buffer, char *opcode);
 bool argument_check(char *token);
 bool comment_check(file_l line);
 
-
 /* OPCODES FUNCS */
 void push(stack_t **stack, unsigned int line_num);
 void pall(stack_t **stack, unsigned int line_num);

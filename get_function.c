@@ -18,8 +18,6 @@ void (*get_opcode_func(file_l line, file_c * buffer))(stack_t **, unsigned int)
 		{NULL, NULL}
 	};
 
-	arg_t arg = {0, 0};
-
 	if (comment_check(line))
 		return (nop);
 

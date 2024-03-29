@@ -1,6 +1,6 @@
 #include "monty.h"
 
-arg_t arg = {0, 0}; 
+arg_t arg = {0, 0};
 
 /**
  * free_stack - frees all nodes in a stack.
