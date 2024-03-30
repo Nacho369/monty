@@ -9,19 +9,19 @@
  *
  * Return: void
  */
-void mod_opcode(stack_t **stack, unsigned int nline)
+void mod_opcode(stack_t **stack, unsigned int line_num)
 {
 	stack_t *temp;
 
 	if (!(*stack) || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't mod, stack too short\n", nline);
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_num);
 		exit(EXIT_FAILURE);
 	}
 
 	if ((*stack)->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero\n", nline);
+		fprintf(stderr, "L%d: division by zero\n", line_num);
 		exit(EXIT_FAILURE);
 	}
 
@@ -30,4 +30,26 @@ void mod_opcode(stack_t **stack, unsigned int nline)
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;
 	free(temp);
+}
+
+
+void pchar(stack_t **stack, unsigned int line_num)
+{
+	int val;
+
+	if (!(*stack))
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+
+	val = (*stack)->n;
+
+	if (val < 0 || val > 159)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%c\n", (char)val);
 }
