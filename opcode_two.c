@@ -123,3 +123,29 @@ void div_opcode(stack_t **stack, unsigned int line_num)
 	(*stack)->prev = NULL;
 	free(temp);
 }
+
+
+/**
+ * mul_opcode - Finds sum of top two elements
+ *
+ * @stack: pointer to the head node pointer of stack
+ * @line_num: line number
+ *
+ * Return: void
+ */
+void mul_opcode(stack_t **stack, unsigned int line_num)
+{
+	stack_t *temp;
+
+	if (!(*stack) || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = *stack;
+	(*stack)->next->n *= (*stack)->n;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	free(temp);
+}
