@@ -109,6 +109,7 @@ void add_opcode(stack_t **stack, unsigned int line_num);
 void sub_opcode(stack_t **stack, unsigned int line_num);
 void div_opcode(stack_t **stack, unsigned int line_num);
 void mul_opcode(stack_t **stack, unsigned int line_num);
+void mod_opcode(stack_t **stack, unsigned int line_num);
 
 
 #endif /* MONTY_H */
