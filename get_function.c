@@ -21,6 +21,7 @@ void (*get_opcode_func(file_l line, file_c * buffer))(stack_t **, unsigned int)
 		{"nop", nop},
 		{"add", add_opcode},
 		{"sub", sub_opcode},
+		{"div", div_opcode},
 		{NULL, NULL}
 	};
 
