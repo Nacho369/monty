@@ -38,3 +38,53 @@ void swap(stack_t **stack, unsigned int line_num)
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = temp;
 }
+
+
+/**
+ * add_opcode - finds sum of top two elements
+ *
+ * @stack: pointer to the head node pointer of stack
+ * @line_num: line number
+ *
+ * Return: NAIN
+ */
+void add_opcode(stack_t **stack, unsigned int line_num)
+{
+	stack_t *temp;
+
+	if (!(*stack) || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = *stack;
+	(*stack)->next->n += (*stack)->n;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	free(temp);
+}
+
+
+/**
+ * sub_opcode - finds sum of top two elements
+ *
+ * @stack: pointer to the head node pointer of stack
+ * @line_num: line number
+ * Return: NAIN
+ */
+void sub_opcode(stack_t **stack, unsigned int line_num)
+{
+	stack_t *temp;
+
+	if (!(*stack) || !(*stack)->next)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+	temp = *stack;
+	(*stack)->next->n -= (*stack)->n;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	free(temp);
+}
