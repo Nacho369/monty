@@ -5,7 +5,7 @@
  * mod_opcode - Finds modulus of top 2 elements and stores it in 2nd element.
  *
  * @stack: pointer to the head node pointer of stack
- * @line_num line number
+ * @line_num: line number
  *
  * Return: void
  */
@@ -33,6 +33,14 @@ void mod_opcode(stack_t **stack, unsigned int line_num)
 }
 
 
+/**
+ * pchar - Prints the char at the top of the stack, followed by a new line
+ *
+ * @stack: Pointer to the head node pointer of stack
+ * @line_num: Line number
+ *
+ * Return: void
+ */
 void pchar(stack_t **stack, unsigned int line_num)
 {
 	int val;
