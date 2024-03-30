@@ -53,6 +53,37 @@ void pchar(stack_t **stack, unsigned int line_num)
 
 	val = (*stack)->n;
 
+	if (val < 0 || val > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%c\n", (char)val);
+}
+
+
+/**
+ * pstr - Prints the string starting at the top of the stack,
+ * followed by a new line
+ *
+ * @stack: Pointer to the head node pointer of stack
+ * @line_num: Line number
+ *
+ * Return: void
+ */
+void pstr(stack_t **stack, unsigned int line_num)
+{
+	int val;
+
+	if (!(*stack))
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_num);
+		exit(EXIT_FAILURE);
+	}
+
+	val = (*stack)->n;
+
 	if (val < 0 || val > 159)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
