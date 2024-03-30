@@ -74,21 +74,19 @@ void pchar(stack_t **stack, unsigned int line_num)
  */
 void pstr(stack_t **stack, unsigned int line_num)
 {
-	int val;
+	unsigned int i;
+	stack_t *temp;
+	(void)line_num;
 
-	if (!(*stack))
+	temp = *stack;
+
+	for (i = 0; temp; i++)
 	{
-		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_num);
-		exit(EXIT_FAILURE);
+		if (temp->n > 127 || temp->n <= 0)
+			break;
+		printf("%c", temp->n);
+		temp = temp->next;
 	}
 
-	val = (*stack)->n;
-
-	if (val < 0 || val > 159)
-	{
-		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
-		exit(EXIT_FAILURE);
-	}
-
-	printf("%c\n", (char)val);
+	printf("\n");
 }
