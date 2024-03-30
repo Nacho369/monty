@@ -27,10 +27,8 @@ void (*get_opcode_func(file_l line, file_c * buffer))(stack_t **, unsigned int)
 		{NULL, NULL}
 	};
 
-	/*
-	 * if (comment_check(line))
-	 * return (nop);
-	 */
+	if (comment_check(line))
+		return (nop);
 
 	for (i = 0; opcodes[i].opcode; i++)
 	{
