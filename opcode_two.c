@@ -76,26 +76,11 @@ void add_opcode(stack_t **stack, unsigned int line_num)
  */
 void sub_opcode(stack_t **stack, unsigned int line_num)
 {
-	stack_t *temp, *count;
-	unsigned int i, len;
+	stack_t *temp;
 
 	if (!(*stack) || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
-		exit(EXIT_FAILURE);
-	}
-
-	count = *stack;
-
-	for (i = 0; count; i++)
-	{
-		len++;
-		count = count->next;
-	}
-
-	if (len < 2)
-	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_num);
 		exit(EXIT_FAILURE);
 	}
 
