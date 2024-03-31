@@ -112,6 +112,7 @@ void mul_opcode(stack_t **stack, unsigned int line_num);
 void mod_opcode(stack_t **stack, unsigned int line_num);
 void pchar(stack_t **stack, unsigned int line_num);
 void pstr(stack_t **stack, unsigned int line_num);
+void rotl(stack_t **stack, unsigned int line_num);
 
 
 #endif /* MONTY_H */
