@@ -126,17 +126,17 @@ julien@ubuntu:~/monty$
 
 
 ## Files Details and Heairachu
-**monty.h :** Header file containing all libraries, prototypes, structures, and other variables.
+##### monty.h : Header file containing all libraries, prototypes, structures, and other variables.
 
-**monty.c :** Entry Point to the program.
+##### monty.c : Entry Point to the program.
 
-**parse_files.c :** Contaims files to parse the program file, line by line.
+##### parse_files.c : Contaims files to parse the program file, line by line.
 
-**get_function.c :** Contains the function to parse a function to the specified opcodes.
+##### get_function.c : Contains the function to parse a function to the specified opcodes.
 
-**func_utils :**
+##### func_utils :
 
-**opcode_one :**
+##### opcode_one :
 
 
 ## Tasks
